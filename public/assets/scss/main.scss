@@ -1,0 +1,54 @@
+@import url('http://fonts.cdnfonts.com/css/cocogoose');
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #5a2d82;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #37104f;
+}
+
+.vuesax-app-is-ltr .vs-input--icon{
+  border-right: none!important;
+}
+
+.input-position{
+  float: left;
+  position: absolute;
+  top: 70px;
+  left: 27%;
+  width: 100%;
+  max-width: 770px;
+
+  @media (max-width: 600px) {
+    top: 90px;
+    left: 0%!important;
+    width: 100%;
+    max-width: 600px;
+  }
+  .vs-con-input-label {
+    width: 100%!important;
+  }
+  .vs-input--placeholder{
+    top: 4px;
+    width: 17%;
+
+    @media (max-width: 600px) {
+      width: 100%;
+    }
+  }
+}
