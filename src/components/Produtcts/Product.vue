@@ -1,36 +1,63 @@
 <template>
-  <vs-card actionable class="cardx">
-    <div class="favorite">
-      <span class="material-icons">favorite</span>
-    </div>
+    <vs-card actionable class="cardx">
+      <div v-if="wishlist === false" class="favorite">
+        <span class="material-icons">favorite</span>
+      </div>
 
-    <div slot="media">
-      <img :src="pdt.image">
-    </div>
-    <div>
-      <span>{{pdt.title}}</span>
-    </div>
-  </vs-card>
+      <div v-if="wishlist === true" class="remove">
+        <span class="material-icons-outlined">cancel</span>
+      </div>
+
+      <div class="product-img">
+        <img :src="pdt.image">
+      </div>
+      <div class="product-info">
+        <h3 class="title">
+          {{pdt.title}}
+        </h3>
+        <p>
+          {{ pdt.currencyFormat }} {{ formatPrice(pdt.price) }}
+        </p>
+      </div>
+    </vs-card>
 </template>
 
 <script>
+
+
 export default {
   name: "Product",
   props: {
-    product: Object
+    product: Object,
+    wishlist: Boolean
   },
   data() {
     return {
-      pdt: null
+      pdt: null,
     }
   },
   created() {
     this.pdt = this.product
+  },
+  methods: {
+    formatPrice(value) {
+      let val = (value/1).toFixed(2).replace('.', ',')
+      return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+    }
   }
 }
 </script>
 
 <style scoped lang="scss">
+
+.remove{
+
+  position: relative;
+  float: right;
+  top: -5 px;
+  z-index: 10;
+  right: -5 px;
+}
 
 .favorite{
   background: #000000;
@@ -41,8 +68,8 @@ export default {
   border-radius: .375rem .375rem 0 0 !important;
 
   float: left;
-  top: -300px;
-  left: -2px;
+  top: -15px;
+  z-index: 10;
 
   &:after{
     border-bottom: 14px solid #000000;
@@ -61,6 +88,34 @@ export default {
   span{
     color: white!important;
     margin-top: 9px;
+  }
+}
+
+.product-img{
+  width: 150px;
+  height: 120px;
+  margin: 0 auto;
+
+  img{
+    width: 100%;
+    border-radius: .375rem;
+  }
+}
+
+.product-info {
+  margin-top: 40px;
+
+  h3{
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+  }
+
+  p{
+    color: #ffd110;
+    font-weight: bold;
+    margin-top: 30%;
+    font-size: 16px;
   }
 }
 </style>

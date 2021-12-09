@@ -8,7 +8,18 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    // meta:{
+    //   breadcrumb: 'Home'
+    // }
+  },
+  {
+    path: '/wishlist',
+    name: 'Wishlist',
+    component: ()=> import('@/views/WishList'),
+    meta:{
+      breadcrumb: 'Lista de Desejos'
+    }
   },
 ]
 

@@ -2,7 +2,7 @@
   <b-container class="p-5">
     <b-row>
       <b-col cols="3" v-for="(product, index) in products" :key="index">
-        <Product :product="product" />
+        <Product :product="product"  :wishlist="false"/>
       </b-col>
     </b-row>
   </b-container>

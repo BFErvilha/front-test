@@ -17,9 +17,9 @@
                 <span class="material-icons ajust-icon">call</span>
                 Central de Atendimento
               </b-nav-item>
-              <b-nav-item href="#">
-                <span class="material-icons ajust-icon">favorite</span>
-                Lista de desejos
+              <b-nav-item :to="'/wishlist'">
+                  <span class="material-icons ajust-icon">favorite</span>
+                  Lista de desejos
               </b-nav-item>
             </b-navbar-nav>
           </b-collapse>
