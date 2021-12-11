@@ -47,8 +47,12 @@ export default {
     },
     addItem() {
       console.log(this.pdt)
-      this.$emit('add', this.pdt)
-      this.isWishlist = true
+      if(this.isWishlist) {
+        this.removeItem()
+      } else {
+        this.$emit('add', this.pdt)
+        this.isWishlist = true
+      }
     },
     removeItem(){
       console.log(this.pdt)

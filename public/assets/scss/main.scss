@@ -56,4 +56,13 @@
 .con-vs-card {
   height: 350px!important;
   width: 250px!important;
+  margin: 0px auto 20px;
+}
+
+.navbar-collapse.collapse{
+  background: #5a2d82;
+  z-index: 145;
+  padding: 15px 0px;
+  border-radius: .375rem;
+  box-shadow: 0px 0px 30px rgba(115, 128, 157, 0.1);
 }

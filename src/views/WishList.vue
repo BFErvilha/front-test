@@ -1,7 +1,7 @@
 <template>
   <b-container class="p-5">
-    <b-row v-if="products !== null ">
-      <b-col cols="3" v-for="product in products" :key="product.id">
+    <b-row v-if="hiddenBox === false ">
+      <b-col cols="12" md="3" v-for="product in products" :key="product.id">
         <Product
             :product="product"
             :wishlistpage="true"
@@ -28,6 +28,7 @@ export default {
   data (){
     return{
       products: null,
+      hiddenBox: null,
     }
   },
   created () {
@@ -38,6 +39,7 @@ export default {
       try {
         const res = window.localStorage.getItem('WishList')
         this.products = JSON.parse(res)
+        this.hiddenBox = false
       } catch (error) {
         console.error(error)
       }
@@ -46,6 +48,9 @@ export default {
       let i = this.products.map(e => e.id).indexOf(e.id)
       this.products.splice(i, 1)
       this.updateWishlist(this.wishlist)
+      if (this.products.length === 0) {
+        this.$router.go(this.$router.currentRoute)
+      }
     },
     updateWishlist (wishlist) {
       let storage = window.localStorage;
