@@ -1,10 +1,10 @@
 <template>
     <vs-card actionable class="cardx">
-      <div v-if="wishlist === false" class="favorite">
-        <span class="material-icons">favorite</span>
+      <div v-if="wishlistpage === false" @click="addItem" class="favorite">
+        <span class="material-icons" :class=" isWishlist ? 'color-red' : ' '">favorite</span>
       </div>
 
-      <div v-if="wishlist === true" class="remove">
+      <div v-if="wishlistpage === true" @click="removeItem" class="remove">
         <span class="material-icons-outlined">cancel</span>
       </div>
 
@@ -29,11 +29,12 @@ export default {
   name: "Product",
   props: {
     product: Object,
-    wishlist: Boolean
+    isWishlist: Boolean,
+    wishlistpage: Boolean
   },
   data() {
     return {
-      pdt: null,
+      pdt: {},
     }
   },
   created() {
@@ -43,8 +44,18 @@ export default {
     formatPrice(value) {
       let val = (value/1).toFixed(2).replace('.', ',')
       return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+    },
+    addItem() {
+      console.log(this.pdt)
+      this.$emit('add', this.pdt)
+      this.isWishlist = true
+    },
+    removeItem(){
+      console.log(this.pdt)
+      this.$emit('remove', this.pdt)
+      this.isWishlist = false
+      }
     }
-  }
 }
 </script>
 
@@ -57,6 +68,12 @@ export default {
   top: -5 px;
   z-index: 10;
   right: -5 px;
+
+  span {
+    &:hover{
+      color: #ff4141;
+    }
+  }
 }
 
 .favorite{
@@ -88,6 +105,10 @@ export default {
   span{
     color: white!important;
     margin-top: 9px;
+  }
+
+  .color-red{
+    color: red!important;
   }
 }
 
