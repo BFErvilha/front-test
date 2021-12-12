@@ -3,7 +3,7 @@
     <header-container @searchData="search"/>
     <b-container class="p-5">
       <b-row>
-        <b-col cols="12" md="3" v-for="(product, index) in filteredProducts" :key="index">
+        <b-col cols="12" md="3" v-for="product in filteredProducts" :key="product.id">
           <Product
               :product="product"
               :wishlistpage="false"
@@ -47,9 +47,13 @@ export default {
   computed: {
     filteredProducts (){
       if (this.searchQuery) {
-        return this.products.filter(product => {
-          return product.title.toLowerCase().includes(this.searchQuery)
+        let query = this.products.filter(product => {
+          return product.title.includes(this.searchQuery)
         })
+        if(!query) {
+          return this.$forceUpdate()
+        }
+      return query
       }else {
         return this.products
       }
@@ -85,7 +89,7 @@ export default {
       storage.setItem('WishList', JSON.stringify(wishlist))
     },
     search(e) {
-      this.searchQuery = e
+      this.searchQuery = e.charAt(0).toUpperCase() + e.slice(1);
     }
   }
 }

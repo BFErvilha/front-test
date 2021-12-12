@@ -47,7 +47,7 @@ export default {
     filteredProducts (){
       if (this.searchQuery) {
         return this.products.filter(product => {
-          return product.title.toLowerCase().includes(this.searchQuery)
+          return product.title.includes(this.searchQuery)
         })
       }else {
         return this.products
@@ -77,7 +77,7 @@ export default {
       storage.setItem('WishList', JSON.stringify(wishlist))
     },
     search(e) {
-      this.searchQuery = e
+      this.searchQuery = e.charAt(0).toUpperCase() + e.slice(1);
     }
   }
 }
