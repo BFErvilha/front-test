@@ -1,16 +1,19 @@
 <template>
-  <b-container class="p-5">
-    <b-row>
-      <b-col cols="12" md="3" v-for="(product, index) in products" :key="index">
-        <Product
-            :product="product"
-            :wishlistpage="false"
-            @add="addWishilist"
-            @remove="removeWishlist"
-        />
-      </b-col>
-    </b-row>
-  </b-container>
+  <div>
+    <header-container @searchData="search"/>
+    <b-container class="p-5">
+      <b-row>
+        <b-col cols="12" md="3" v-for="(product, index) in filteredProducts" :key="index">
+          <Product
+              :product="product"
+              :wishlistpage="false"
+              @add="addWishilist"
+              @remove="removeWishlist"
+          />
+        </b-col>
+      </b-row>
+    </b-container>
+  </div>
 </template>
 
 <script>
@@ -18,22 +21,39 @@
 
 import axios from "axios";
 import Product from "../components/Produtcts/Product";
+import HeaderContainer from "../components/Header/HeaderContainer";
 
 export default {
   name: 'Home',
   components: {
-    Product
+    Product,
+    HeaderContainer
+  },
+  props:{
+    searchData: String
   },
   data (){
     return{
       apiUrl: 'https://run.mocky.io/v3/66063904-d43c-49ed-9329-d69ad44b885e',
       products: null,
       wishlist: [],
-      colorLoading: '#5a2d82'
+      colorLoading: '#5a2d82',
+      searchQuery: '',
     }
   },
   created () {
     this.loadProducts()
+  },
+  computed: {
+    filteredProducts (){
+      if (this.searchQuery) {
+        return this.products.filter(product => {
+          return product.title.toLowerCase().includes(this.searchQuery)
+        })
+      }else {
+        return this.products
+      }
+    }
   },
   methods: {
     async loadProducts () {
@@ -64,6 +84,9 @@ export default {
       let storage = window.localStorage;
       storage.setItem('WishList', JSON.stringify(wishlist))
     },
+    search(e) {
+      this.searchQuery = e
+    }
   }
 }
 </script>

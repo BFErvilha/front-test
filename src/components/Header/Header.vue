@@ -24,7 +24,7 @@
             </b-navbar-nav>
           </b-collapse>
           <div class="input-position">
-            <vs-input icon="search" placeholder="Buscar" v-model="search"/>
+            <vs-input icon="search" placeholder="Buscar" v-model="search" @input="$emit('search', search)"/>
           </div>
         </b-navbar>
       </b-col>
@@ -37,8 +37,8 @@ export default {
   name: "Header",
   data:()=>({
     activeItem: 0,
-    search: ''
-  })
+    search: null
+  }),
 }
 </script>
 
