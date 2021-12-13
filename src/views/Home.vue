@@ -2,7 +2,7 @@
   <div>
     <header-container @searchData="search"/>
     <b-container class="p-5">
-      <b-row>
+      <b-row style="justify-content: space-between;">
         <b-col cols="12" md="3" v-for="product in filteredProducts" :key="product.id">
           <Product
               :product="product"

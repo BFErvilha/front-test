@@ -121,10 +121,12 @@ export default {
   width: 150px;
   height: 120px;
   margin: 0 auto;
+  max-width: 100%;
 
   img{
     width: 100%;
     border-radius: .375rem;
+    max-width: 150%;
   }
 }
 

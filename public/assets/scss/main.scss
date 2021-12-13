@@ -33,6 +33,32 @@
   left: 27%;
   width: 100%;
   max-width: 770px;
+  z-index: 500;
+
+  @media (max-width: 1399px) and (min-width: 1200px ) {
+    top: 90px;
+    width: 100%;
+    max-width: 600px;
+  }
+
+  @media (max-width: 1199px) and (min-width: 991px ) {
+    top: 90px;
+    width: 100%;
+    max-width: 500px;
+  }
+
+  @media (max-width: 990px) and (min-width: 895px ) {
+    top: 90px;
+    width: 100%;
+    max-width: 500px;
+  }
+
+  @media (max-width: 895px) and (min-width: 601px ) {
+    top: 90px;
+    left: 0!important;
+    width: 100%;
+    //max-width: 450px;
+  }
 
   @media (max-width: 600px) {
     top: 90px;
@@ -55,8 +81,12 @@
 
 .con-vs-card {
   height: 350px!important;
-  width: 250px!important;
   margin: 0px auto 20px;
+  max-width: 250px;
+
+  @media (max-width: 937px)  {
+    width: 100%!important;
+  }
 }
 
 .navbar-collapse.collapse{
