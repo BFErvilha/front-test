@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <VueGithubCorners :repoUrl="repoUrl" :catColor="catColor" :bgColor="bgColor" style="z-index: 1"></VueGithubCorners>
+    <VueGithubCorners :repoUrl="repoUrl" :catColor="catColor" :bgColor="bgColor" style="z-index: 160"></VueGithubCorners>
     <router-view />
   </div>
 </template>
