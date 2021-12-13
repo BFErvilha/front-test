@@ -24,7 +24,7 @@
             </b-navbar-nav>
           </b-collapse>
           <div class="input-position">
-            <vs-input icon="search" placeholder="Buscar" v-model="search" @input="$emit('search', search)"/>
+            <vs-input icon="search" id="searchProduct" placeholder="Buscar" v-model="search" @input="$emit('search', search)"/>
           </div>
         </b-navbar>
       </b-col>

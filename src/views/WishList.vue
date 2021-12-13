@@ -67,7 +67,7 @@ export default {
     removeWishlist (e) {
       let i = this.products.map(e => e.id).indexOf(e.id)
       this.products.splice(i, 1)
-      this.updateWishlist(this.wishlist)
+      this.updateWishlist(this.products)
       if (this.products.length === 0) {
         this.$router.go(this.$router.currentRoute)
       }

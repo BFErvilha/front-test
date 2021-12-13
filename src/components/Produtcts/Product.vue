@@ -11,6 +11,7 @@
       <div class="product-img">
         <img :src="pdt.image">
       </div>
+
       <div class="product-info">
         <h3 class="title">
           {{pdt.title}}
