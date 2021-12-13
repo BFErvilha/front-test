@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <VueGithubCorners :repoUrl="repoUrl" :catColor="catColor" :bgColor="bgColor" style="z-index: 1"></VueGithubCorners>
     <router-view />
   </div>
 </template>
@@ -7,6 +8,14 @@
 <script>
 
 export default {
+  name: 'App',
+  data () {
+    return {
+      repoUrl: 'https://github.com/BFErvilha/finance-challenge',
+      catColor: '#fff',
+      bgColor: '#873deb'
+    }
+  }
 }
 </script>
 

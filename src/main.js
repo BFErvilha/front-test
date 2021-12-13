@@ -5,6 +5,7 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import Vuesax from 'vuesax'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+import { VueGithubCorners } from 'vue2-github-corners'
 
 import 'vuesax/dist/vuesax.css' //Vuesax styles
 import 'material-icons/iconfont/material-icons.css';
@@ -17,6 +18,7 @@ Vue.config.productionTip = false
 Vue.use(VueAxios, axios)
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
+Vue.component('VueGithubCorners', VueGithubCorners)
 
 new Vue({
   router,
