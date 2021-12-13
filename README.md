@@ -4,7 +4,7 @@ Desafio para criar uma Wishlist
 
 Utilizado:
 - Vue 2
-- [Boostrap-vue](hhttps://bootstrap-vue.org/) - Utilizado como frontend components
+- [Boostrap-vue](https://bootstrap-vue.org/) - Utilizado como frontend components
 - [Vuesax](https://lusaxweb.github.io/vuesax/) - Utilizado como frontend components
 
 # Demo
