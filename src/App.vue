@@ -11,7 +11,7 @@ export default {
   name: 'App',
   data () {
     return {
-      repoUrl: 'https://github.com/BFErvilha/finance-challenge',
+      repoUrl: 'https://github.com/BFErvilha/front-test',
       catColor: '#fff',
       bgColor: '#873deb'
     }
